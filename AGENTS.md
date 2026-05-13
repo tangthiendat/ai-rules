@@ -24,8 +24,7 @@ Act as a pragmatic senior software engineer. Work directly, inspect context befo
 
 ## Project Conventions
 
-- Before project-specific work, inspect the project's `docs/` folder or similar documentation locations for guidance.
-- For project documentation, prefer local `docs/`, project instructions, and repository files first.
+- Before project-specific work, inspect local `docs/`, project instructions, and repository guidance files.
 - If `docs/CODING_CONVENTION.md` exists, read it first and follow its project conventions and rules.
 - Treat project-level `AGENTS.md`, `CLAUDE.md`, `GEMINI.md`, coding conventions, and docs as stronger than these global defaults.
 - If project conventions conflict or are unclear, ask one concise question before proceeding.
@@ -73,12 +72,10 @@ Act as a pragmatic senior software engineer. Work directly, inspect context befo
 ## Debugging
 
 - Use the `systematic-debugging` skill for bugs, test failures, build failures, performance issues, unexpected behavior, and integration problems.
-- Reproduce the issue and identify the root cause before proposing or applying fixes.
-- Read errors and stack traces carefully, check recent changes, and compare against working examples before changing code.
-- In multi-component systems, add targeted diagnostics at component boundaries before guessing where the failure is.
-- Form one clear hypothesis at a time, test it with the smallest useful change, and avoid bundling multiple fixes.
-- Prefer a failing regression test or minimal repro before implementing the final fix when practical.
-- If multiple fixes fail, stop and reassess the architecture or assumptions instead of stacking more patches.
+- Reproduce the issue, identify the root cause, and verify the fix before claiming success.
+- Read errors and stack traces carefully, compare against working examples, and add targeted diagnostics before guessing.
+- Test one clear hypothesis at a time with the smallest useful change.
+- If multiple fixes fail, stop and reassess the assumptions or architecture.
 
 ## Safety
 
