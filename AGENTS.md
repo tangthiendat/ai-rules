@@ -46,31 +46,23 @@ Act as a pragmatic senior software engineer. Work directly, inspect context befo
 
 ### Complex Reasoning And Debugging
 
-- Use the `sequential-thinking` MCP for complex, multi-step tasks, planning and analysis that may need revision, debugging, and problems where the scope, assumptions, tradeoffs, or relevant signals need to be worked through step by step.
-
-- Use the `sequential-thinking` MCP when debugging requires multi-step analysis, revising assumptions, or comparing competing hypotheses.
+- Use `sequential-thinking` for complex, multi-step reasoning, iterative analysis, and debugging that benefits from structured hypotheses.
 
 ### Code Navigation And Project Memory
 
 - Before working in a new project with Serena, activate the project and check whether onboarding has been performed.
-- Use Serena for symbol-aware navigation and edits when working in unfamiliar or larger codebases.
-- Prefer Serena symbol tools for finding definitions, references, renames, and safe deletions when they are more precise than text search.
-- Use Serena memories selectively for durable project context: read relevant memories when they are likely to help, and write concise memories only when the information will be useful for future tasks.
-- Fall back to normal file search, grep, and code inspection when Serena is unavailable, stale, or not useful for the task.
+- Use Serena for symbol-aware navigation, precise edits, and durable project memory when it is more useful than text search.
 
 ### External Documentation Research
 
-- For external library, framework, API, SDK, or tool documentation research, use Context7 to get current, version-aware information when available.
-- Resolve the Context7 library ID first, then query the specific documentation topic or version needed for the task.
-- If Context7 has no suitable result, say so and fall back to local docs, official docs, or code inspection.
-- Do not include secrets, credentials, tokens, personal data, or proprietary code in Context7 queries.
+- Use Context7 first for supported external library, framework, API, SDK, and tool documentation.
+- If Context7 is not suitable, fall back to local docs, official docs, or code inspection.
+- Do not include secrets or proprietary code in Context7 queries.
 
 ### Live Web Research And Extraction
 
-- Use Firecrawl for live web search, scraping, site mapping, crawling, structured extraction, and interactive browsing when the task depends on current public web content.
-- Prefer Context7 first for supported library, framework, API, SDK, and tool documentation; use Firecrawl when Context7 is unavailable, incomplete, or the task depends on non-Context7 web sources.
-- Use Firecrawl when documentation is spread across many pages, when the correct page must be discovered first, or when static fetch tools do not handle the site well.
-- Prefer targeted scraping or mapping before broad crawling, and use interactive browsing only when static extraction is insufficient.
+- Use Firecrawl when the task depends on current public web content, page discovery, or multi-page web extraction.
+- Prefer targeted scrape or map workflows before broad crawling or interactive browsing.
 
 ## Testing And Verification
 
