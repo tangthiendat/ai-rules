@@ -1,4 +1,4 @@
-# Global OpenCode Instructions
+# Global Instructions
 
 ## Role
 
@@ -13,7 +13,8 @@ Act as a pragmatic senior software engineer. These are shared defaults for a per
 
 ## Framework Activation
 
-- For non-trivial work under this personal framework, activate `use-radforge` first unless a stronger repository-local workflow already applies.
+- For non-trivial work under this personal framework, activate `use-radforge` first as the bootstrap router unless a stronger repository-local workflow already applies.
+- Small, clear, low-risk tasks may be handled directly without forcing the full workflow.
 - Keep one active primary workflow skill at a time.
 - Let repository-local workflow rules override these personal defaults when they are explicit.
 - Use these global instructions to support the active skill, not to bypass the framework's routing and handoff model.
@@ -51,11 +52,6 @@ Act as a pragmatic senior software engineer. These are shared defaults for a per
 
 ## MCP Tools
 
-### Code Navigation And Project Memory
-
-- Before working in a new project with Serena, activate the project and check whether onboarding has been performed.
-- Use Serena for symbol-aware navigation, precise edits, and durable project memory when it is more useful than text search.
-
 ### External Documentation Research
 
 - Use Context7 first for supported external library, framework, API, SDK, and tool documentation.
@@ -66,6 +62,34 @@ Act as a pragmatic senior software engineer. These are shared defaults for a per
 
 - Use Firecrawl when the task depends on current public web content, page discovery, or multi-page web extraction.
 - Prefer targeted scrape or map workflows before broad crawling or interactive browsing.
+
+### CodeGraph
+
+CodeGraph builds a semantic knowledge graph of codebases for faster, smarter code exploration.
+
+### If `.codegraph/` exists in the project
+
+**Answer directly with CodeGraph — don't delegate exploration to a file-reading sub-agent or a grep/read loop.** CodeGraph _is_ the pre-built search index; re-deriving its answers with grep + Read repeats work it already did and costs more for the same result. For "how does X work?", architecture, trace, or where-is-X questions, answer in a handful of CodeGraph calls and stop — typically with **zero file reads**. The returned source is complete and authoritative: treat it as already read and do not re-open those files. Reach for raw Read/Grep only to confirm a specific detail CodeGraph didn't cover.
+
+**Tool selection by intent:**
+
+| Tool                                      | Use For                                                                                                 |
+| ----------------------------------------- | ------------------------------------------------------------------------------------------------------- |
+| `codegraph_context`                       | Map a task / feature / area first — composes search + node + callers + callees in one call              |
+| `codegraph_trace`                         | "How does X reach Y" — the call path, each hop's body inline (follows dynamic-dispatch hops grep can't) |
+| `codegraph_explore`                       | Survey several related symbols' source in ONE budget-capped call                                        |
+| `codegraph_search`                        | Find a symbol by name                                                                                   |
+| `codegraph_callers` / `codegraph_callees` | Walk call flow one hop at a time                                                                        |
+| `codegraph_impact`                        | Check what's affected before editing                                                                    |
+| `codegraph_node`                          | Get a single symbol's source / signature                                                                |
+
+A direct CodeGraph answer is a handful of calls; a grep/read exploration is dozens.
+
+### If `.codegraph/` does NOT exist
+
+At the start of a session, ask the user if they'd like to initialize CodeGraph:
+
+"I notice this project doesn't have CodeGraph initialized. Would you like me to run `codegraph init -i` to build a code knowledge graph?"
 
 ## Testing And Verification
 
