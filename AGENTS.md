@@ -48,6 +48,7 @@ Act as a pragmatic senior software engineer. These are shared defaults for a per
 ## Editing Tools
 
 - Use `apply_patch` for manual file edits.
+- Prefer `rg` over standard `grep` for text search.
 - Avoid shell-based file editing unless it is clearly safer or more efficient.
 
 ## MCP Tools
